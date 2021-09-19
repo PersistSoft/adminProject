@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">File bulk template</h4>
+                <input type="file" id="input-file-now" class="dropify" 
+                    (change)="uploadFile($event)" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"                    />
+                <button *ngIf="showButton" (click)="processFile()" class="btn btn-primary">Procesar archivo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="response" class="card">
+    <div class="card-body">
+        <div class="d-flex">
+            <div>
+                <h3 class="card-title m-b-5"><span class="lstick"></span>Resultados de la carga</h3>
+                <h6 class="card-subtitle">{{ fileName }}</h6></div>
+            <div class="ml-auto">
+                <ul class="list-inline">
+                    <li>
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 m-r-10 text-primary m-t-10"></i>
+                            <div>
+                                <h2 class="m-b-0">{{ response.apartmentTypeInserted }}</h2>
+                                <h6 class="text-muted">Tipos de apartamentos</h6></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 m-r-10 text-info m-t-10"></i>
+                            <div>
+                                <h2 class="m-b-0">{{ response.apartmentsInserted }}</h2>
+                                <h6 class="text-muted">Apartamentos</h6></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 m-r-10 text-warning m-t-10"></i>
+                            <div>
+                                <h2 class="m-b-0">{{ response.buildingInserted }}</h2>
+                                <h6 class="text-muted">Edificions</h6></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 m-r-10 text-success m-t-10"></i>
+                            <div>
+                                <h2 class="m-b-0">{{ response.parkingInserted }}</h2>
+                                <h6 class="text-muted">Parking</h6></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="d-flex">
+                            <i class="fa fa-circle font-10 m-r-10 text-dark m-t-10"></i>
+                            <div>
+                                <h2 class="m-b-0">{{ response.projectInserted }}</h2>
+                                <h6 class="text-muted">Proyectos</h6></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="sales-overview" class="p-relative" style="height:400px;">
+            <div class="table-responsive m-t-20">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Columna</th>
+                            <th>Error</th>
+                            <th>Fila</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let log of logs" >
+                            <td>{{ log.column }}</td>
+                            <td>{{ log.error }}</td>
+                            <td>{{ log.row }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

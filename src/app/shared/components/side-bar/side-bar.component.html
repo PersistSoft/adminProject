@@ -18,11 +18,11 @@
             </span></a
           >
           <ul aria-expanded="false" class="collapse">
-            <li><a href="javascript:void()">My Profile </a></li>
+            <li><a [routerLink]="['/admin/bulkData']" routerLinkActive="active">Bulk data</a></li>
             <li><a href="javascript:void()">My Balance</a></li>
             <li><a href="javascript:void()">Inbox</a></li>
             <li><a href="javascript:void()">Account Setting</a></li>
-            <li><a href="javascript:void()">Logout</a></li>
+            <li><a href="javascript:void()" (click)="logOut()">Logout</a></li>
           </ul>
         </li>
         <li class="nav-devider"></li>
